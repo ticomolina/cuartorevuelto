@@ -1,0 +1,17 @@
+{
+  "name": "Cuarto Revuelto",
+  "short_name": "Cuarto Revuelto",
+  "description": "Juego para encontrar objetos y aprender a leer.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FCEFD8",
+  "theme_color": "#FCEFD8",
+  "icons": [
+    { "src": "iconos/icono-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "iconos/icono-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "iconos/icono-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

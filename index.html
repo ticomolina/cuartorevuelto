@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Cuarto Revuelto</title>
+<meta name="theme-color" content="#FCEFD8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Cuarto Revuelto">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="iconos/icono-192.png">
+<link rel="apple-touch-icon" href="iconos/apple-touch-icon.png">
+<link rel="preload" href="fuentes/lilita-one.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fuentes/andika-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<!-- Íconos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-estrella" viewBox="0 0 100 100">
+      <path d="M50 6 L62 36 L94 38 L69 59 L77 91 L50 73 L23 91 L31 59 L6 38 L38 36 Z" fill="#FFD23F" stroke="#E8941A" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M50 16 L58 38 L82 40 L64 55" fill="none" stroke="#FFF3B0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+    </symbol>
+    <symbol id="i-estrella-gris" viewBox="0 0 100 100">
+      <path d="M50 6 L62 36 L94 38 L69 59 L77 91 L50 73 L23 91 L31 59 L6 38 L38 36 Z" fill="#E4DCCD" stroke="#C3B8A4" stroke-width="7" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-corazon" viewBox="0 0 100 90">
+      <path d="M50 86 C20 64 4 48 4 28 C4 13 16 4 29 4 C39 4 46 10 50 18 C54 10 61 4 71 4 C84 4 96 13 96 28 C96 48 80 64 50 86 Z" stroke-width="6" stroke-linejoin="round"/>
+      <ellipse cx="28" cy="24" rx="10" ry="7" fill="#fff" opacity=".45" transform="rotate(-25 28 24)"/>
+    </symbol>
+    <symbol id="i-pausa" viewBox="0 0 100 100">
+      <rect x="27" y="22" width="16" height="56" rx="6" fill="#fff"/>
+      <rect x="57" y="22" width="16" height="56" rx="6" fill="#fff"/>
+    </symbol>
+    <symbol id="i-casa" viewBox="0 0 100 100">
+      <path d="M50 14 L88 46 L78 46 L78 84 L58 84 L58 62 L42 62 L42 84 L22 84 L22 46 L12 46 Z" fill="#FF8A3D" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 100 100">
+      <path d="M34 22 Q30 20 30 25 V75 Q30 80 34 78 L78 53 Q82 50 78 47 Z" fill="#fff" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-casa-blanca" viewBox="0 0 100 100">
+      <path d="M50 16 L86 46 L77 46 L77 82 L59 82 L59 62 L41 62 L41 82 L23 82 L23 46 L14 46 Z" fill="#fff" stroke="#fff" stroke-width="7" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-engranaje" viewBox="0 0 100 100">
+      <path d="M43 8h14l3 12 9 4 11-6 10 10-6 11 4 9 12 3v14l-12 3-4 9 6 11-10 10-11-6-9 4-3 12H43l-3-12-9-4-11 6-10-10 6-11-4-9-12-3V43l12-3 4-9-6-11 10-10 11 6 9-4z" fill="#fff"/>
+      <circle cx="50" cy="50" r="14" fill="#F06FA6"/>
+    </symbol>
+    <symbol id="i-sonido" viewBox="0 0 100 100">
+      <path d="M16 38 h16 l22 -18 v60 l-22 -18 h-16 z" fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M66 36 q10 14 0 28 M76 26 q18 24 0 48" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-mudo" viewBox="0 0 100 100">
+      <path d="M16 38 h16 l22 -18 v60 l-22 -18 h-16 z" fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M64 36 l26 28 M90 36 l-26 28" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="app">
+
+  <!-- ============ INICIO ============ -->
+  <section id="pantalla-inicio" class="pantalla activa">
+    <div class="tarjeta-cielo">
+      <div class="deco-cielo" aria-hidden="true"></div>
+      <div class="barra-inicio">
+        <button class="boton-redondo rosa" id="btn-ajustes" aria-label="Ajustes"><svg><use href="#i-engranaje"/></svg></button>
+        <button class="boton-redondo naranja" id="btn-sonido" aria-label="Sonido"><svg><use id="icono-sonido" href="#i-sonido"/></svg></button>
+      </div>
+      <h1 class="titulo-recortado titulo-inicio" data-texto="CUARTO|REVUELTO"></h1>
+      <img class="portada" src="img/portada.png" alt="">
+      <div class="pildora-record"><span class="copa">🏆</span> RÉCORD <span id="record-inicio">0</span></div>
+      <button class="boton-grande verde" id="btn-jugar">JUGAR</button>
+    </div>
+  </section>
+
+  <!-- ============ JUEGO ============ -->
+  <section id="pantalla-juego" class="pantalla">
+    <header class="cabecera">
+      <div class="contador-estrellas" id="contador-estrellas">
+        <svg><use href="#i-estrella"/></svg><span id="num-estrellas">0</span>
+      </div>
+      <div class="selector-nivel">
+        <button id="btn-nivel-menos" aria-label="Nivel anterior">−</button>
+        <span class="texto-nivel">NIVEL <b id="num-nivel">1</b></span>
+        <button id="btn-nivel-mas" aria-label="Nivel siguiente">+</button>
+      </div>
+      <button class="boton-redondo turquesa" id="btn-pausa" aria-label="Pausa"><svg><use href="#i-pausa"/></svg></button>
+    </header>
+
+    <div class="panel">
+      <div class="fila-misiones">
+        <div class="misiones" id="misiones"></div>
+      </div>
+      <div class="fila-vidas">
+        <div class="vidas" id="vidas"></div>
+        <div class="barra-tiempo"><div class="relleno-tiempo" id="relleno-tiempo"></div></div>
+        <button class="boton-pista" id="btn-pista" aria-label="Pista">
+          <span class="lamparita">💡</span>
+          <span class="insignia" id="num-pistas">3</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="escenario" id="escenario">
+      <div class="objetos" id="objetos"></div>
+    </div>
+  </section>
+
+  <!-- ============ CAPAS ============ -->
+  <div class="capa" id="capa-festejo">
+    <div class="festejo">
+      <h2 class="titulo-recortado titulo-cartel" id="titulo-festejo"></h2>
+      <div class="estrellas-festejo" id="estrellas-festejo"></div>
+      <div class="proximo" id="proximo"></div>
+    </div>
+  </div>
+
+  <div class="capa" id="capa-tiempo">
+    <div class="festejo">
+      <div class="reloj-grande">⏰</div>
+      <h2 class="titulo-recortado titulo-cartel" data-texto="¡SE ACABÓ|EL TIEMPO!"></h2>
+    </div>
+  </div>
+
+  <div class="capa" id="capa-pausa">
+    <div class="ventana">
+      <h2 class="titulo-recortado titulo-cartel" data-texto="PAUSA"></h2>
+      <div class="botones-pausa">
+        <button class="boton-icono verde" id="btn-seguir" aria-label="Seguir"><svg><use href="#i-play"/></svg></button>
+        <button class="boton-icono celeste" id="btn-inicio-pausa" aria-label="Inicio"><svg><use href="#i-casa-blanca"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="capa" id="capa-fin">
+    <div class="ventana ventana-fin">
+      <h2 class="titulo-recortado titulo-cartel" id="titulo-fin"></h2>
+      <div class="total-fin">
+        <svg><use href="#i-estrella"/></svg>
+        <span id="estrellas-fin">0</span>
+      </div>
+      <div class="pildora-record"><span class="copa">🏆</span> RÉCORD <span id="record-fin">0</span></div>
+      <button class="boton-grande verde" id="btn-otra-vez-fin">OTRA VEZ</button>
+      <button class="boton-grande turquesa" id="btn-inicio-fin">INICIO</button>
+    </div>
+  </div>
+
+  <div class="capa" id="capa-ajustes">
+    <div class="ventana ventana-ajustes">
+      <h2 class="titulo-recortado titulo-cartel" data-texto="AJUSTES"></h2>
+      <button class="boton-ajuste" id="btn-voz">LEER PALABRAS: <b id="estado-voz">SÍ</b></button>
+      <button class="boton-ajuste" id="btn-borrar-record">BORRAR RÉCORD</button>
+      <button class="boton-grande verde" id="btn-cerrar-ajustes">LISTO</button>
+    </div>
+  </div>
+
+  <div class="capa" id="capa-girar">
+    <div class="festejo"><div class="reloj-grande girando">📱</div>
+      <h2 class="titulo-recortado titulo-cartel" data-texto="GIRÁ LA|TABLET"></h2></div>
+  </div>
+
+  <div id="vuelos"></div>
+  <canvas id="confeti"></canvas>
+</div>
+
+<script src="datos.js"></script>
+<script src="js/sonidos.js"></script>
+<script src="js/juego.js"></script>
+</body>
+</html>
